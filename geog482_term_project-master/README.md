@@ -29,3 +29,5 @@ Som, Johnjimy<br/>
 GEOG 482 - Advanced Digital Cartography & GIS <br/>
 California State University, Long Beach <br/>
 Instructor: Dr. Hyowon Ban<br/>
+
+<br> https://johnjimysom.github.io/geog482_term_project-master/
