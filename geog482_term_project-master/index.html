@@ -8,6 +8,8 @@
 
   <link rel="stylesheet" href="https://js.arcgis.com/3.32/dijit/themes/claro/claro.css">
   <link rel="stylesheet" href="https://js.arcgis.com/3.32/esri/css/esri.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.32/esri/themes/calcite/dijit/calcite.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.32/esri/themes/calcite/esri/esri.css">
 
   <style>
     html, body {
@@ -29,22 +31,31 @@
   <script>
     var map;
     require([
-      "esri/map", "esri/layers/FeatureLayer", "esri/dijit/Legend",
+      "esri/map", "esri/layers/FeatureLayer", "esri/dijit/Legend", "esri/dijit/Scalebar",
       "dojo/_base/array", "dojo/parser",
       "dijit/layout/BorderContainer", "dijit/layout/ContentPane", 
-      "dijit/layout/AccordionContainer", "dojo/domReady!"
+      "dijit/layout/AccordionContainer", "dojo/domReady!",
     ], function(
-      Map, FeatureLayer, Legend,
+      Map, FeatureLayer, Legend, Scalebar, 
       arrayUtils, parser
     ) {
       parser.parse();
 
       map = new Map("map", {
         basemap:"topo",
-        center: [-118.1129, 33.7830], //coordinates of CSULB
-        zoom: 14
+        center: [-118.1129, 33.7830],
+        zoom: 16
       });
-
+	  
+	  //scalebar
+	  var scalebar = new Scalebar({
+          map: map,
+          // "dual" displays both miles and kilometers
+          // "english" is the default, which displays miles
+          // use "metric" for kilometers
+          scalebarUnit: "dual"
+        });
+	  
       var rivers = new FeatureLayer("https://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Hydrography/Watershed173811/MapServer/1", {
         mode: FeatureLayer.MODE_ONDEMAND,
         outFields: ["*"]
@@ -53,7 +64,7 @@
         mode: FeatureLayer.MODE_ONDEMAND,
         outFields: ["*"]
       });
-
+	
       //add the legend
       map.on("layers-add-result", function (evt) {
         var layerInfo = arrayUtils.map(evt.layers, function (layer, index) {
@@ -67,14 +78,13 @@
           legendDijit.startup();
         }
       });
-
       map.addLayers([waterbodies, rivers]);
     });
   </script>
 </head>
 
-<body class="claro">
-  <h2 align="center">Web Application - California State University, Long Beach - Map</h2>
+<body class="calcite">
+  <h1 align="center">California State University, Long Beach - Map</h1> 
   <!--this div creates the map-->
 <div id="content"
      data-dojo-type="dijit/layout/BorderContainer"
