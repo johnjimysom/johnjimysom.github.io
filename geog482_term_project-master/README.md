@@ -1,7 +1,7 @@
 # geog482_term_project - California State University Long Beach Map
 <p align="center">
     <a href="#version">
-        <img src="https://img.shields.io/badge/version-0.6-lightblue.svg"
+        <img src="https://img.shields.io/badge/version-0.7-lightblue.svg"
             alt="version"></a>
     <a href="#status">
         <img src="https://img.shields.io/badge/project-stable build-green.svg"
