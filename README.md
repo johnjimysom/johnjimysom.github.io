@@ -1,2 +1,2 @@
 # johnjimysom.github.io
-Current Personal Website
+github directory
