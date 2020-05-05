@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   
   <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
-  <title>Map with legend</title>
+  <titleLightweight Map - CSULB</title>
 
   <link rel="stylesheet" href="https://js.arcgis.com/3.32/dijit/themes/claro/claro.css">
   <link rel="stylesheet" href="https://js.arcgis.com/3.32/esri/css/esri.css">
@@ -28,11 +28,14 @@
   </style>
 
   <script src="https://js.arcgis.com/3.32/"></script>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.1/esri/css/main.css">
+  
+  
   <script>
     var map;
     require([
       "esri/map", "esri/layers/FeatureLayer", "esri/dijit/Legend", "esri/dijit/Scalebar",
-      "dojo/_base/array", "dojo/parser",
+      "dojo/_base/array", "dojo/parser", 
       "dijit/layout/BorderContainer", "dijit/layout/ContentPane", 
       "dijit/layout/AccordionContainer", "dojo/domReady!",
     ], function(
@@ -84,7 +87,7 @@
 </head>
 
 <body class="calcite">
-  <h1 align="center">California State University, Long Beach - Map</h1> 
+  <h1 align="center">Web Application - California State University, Long Beach - Map</h1> 
   <!--this div creates the map-->
 <div id="content"
      data-dojo-type="dijit/layout/BorderContainer"
@@ -115,10 +118,11 @@
 </div>
 </body>
 <footer>
-  <p>Created By: Johnjimy Som <br>
-  GEOG 482 - Term Project<br>
-  Source: ESRI <br>
-  Date: April 25, 2020 <br><br></p>
+<img src="images/northarrow.PNG" alt="north arrow" align="left" width="60px" height="60px">
+  <p>&nbsp&nbsp Created By: Johnjimy Som <br>
+  &nbsp&nbsp GEOG 482 - Term Project<br>
+  &nbsp&nbsp Source: ESRI <br>
+  &nbsp&nbsp Updated: May 5, 2020 <br><br></p>
 </footer>
 </html>
 <!--for you source readers: https://www.youtube.com/watch?v=koqYK33E1oo -->
