@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +22,13 @@
     #rightPane {
       width: 20%;
     }
-
+	
+	body{
+        background-color:#feffff; overflow:hidden; 
+        font-family: "Trebuchet MS";
+        margin: 2%;
+      }
+	
     #legendPane {
       border: solid #97DCF2 1px;
     }
@@ -47,7 +54,7 @@
       map = new Map("map", {
         basemap:"topo",
         center: [-118.1129, 33.7830],
-        zoom: 16
+        zoom: 15
       });
 	  
 	  //scalebar
@@ -59,11 +66,15 @@
           scalebarUnit: "dual"
         });
 	  
-      var rivers = new FeatureLayer("https://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Hydrography/Watershed173811/MapServer/1", {
+      var lake = new FeatureLayer("https://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/MapServer/96", {
         mode: FeatureLayer.MODE_ONDEMAND,
         outFields: ["*"]
       });
-      var waterbodies = new FeatureLayer("https://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Hydrography/Watershed173811/MapServer/0", {
+      var fire = new FeatureLayer("https://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Fire/Sheep/MapServer/2", {
+        mode: FeatureLayer.MODE_ONDEMAND,
+        outFields: ["*"]
+      });
+	  var population = new FeatureLayer("https://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Network/USA/MapServer/53", {
         mode: FeatureLayer.MODE_ONDEMAND,
         outFields: ["*"]
       });
@@ -81,9 +92,10 @@
           legendDijit.startup();
         }
       });
-      map.addLayers([waterbodies, rivers]);
+      map.addLayers([ lake, fire, population,]);
     });
   </script>
+  
 </head>
 
 <body class="calcite">
@@ -104,9 +116,16 @@
         <div id="legendDiv"></div>
       </div>
       <div data-dojo-type="dijit/layout/ContentPane"
-           data-dojo-props="title:'OPTION (INCOMPLETE)'">
-        Add functions, symbols, stats or tools. <br>
-		(For now this does nothing)
+           data-dojo-props="title:'DESCRIPTION'">
+         This web application introduces features from ESRI's Web API to be implemented in the app. The map defaults to CSULB Coordinates: 33.7838° N, 118.1141° W<br>
+		<br><b>Tasks to TEST:</b><br>
+		1. Try to move the map to down the Naples in Long Beach, You will see green dots (population)
+		<br>
+		2. Try to move the map to up to San Gabriel Mountains, You will see a red polygon (fire perimeter)
+		<br>
+		3. Try to observe the rivers, canals, oceans around Long Beach, You will see water in a darker blue shade (waterp_1)
+		<br><br>
+		*Note: If you do not see the features, try refreshing the webpage and be patient, if that fails try a different web browser.
       </div>
     </div>
   </div>
@@ -122,7 +141,7 @@
   <p>&nbsp&nbsp Created By: Johnjimy Som <br>
   &nbsp&nbsp GEOG 482 - Term Project<br>
   &nbsp&nbsp Source: ESRI <br>
-  &nbsp&nbsp Updated: May 5, 2020 <br><br></p>
+  &nbsp&nbsp Updated: May 9, 2020 <br><br></p>
 </footer>
 </html>
 <!--for you source readers: https://www.youtube.com/watch?v=koqYK33E1oo -->
