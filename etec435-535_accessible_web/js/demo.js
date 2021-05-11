@@ -2496,7 +2496,7 @@
             imgel.style.width = 0;
             imgel.src = imgsArr[i];
             imgel.className = 'preload';
-			imgel.alt = "placeholder"
+	    imgel.alt = "placeholder"
             contentel.appendChild(imgel);
         }
     });
