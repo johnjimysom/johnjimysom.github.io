@@ -4,7 +4,8 @@
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
  * 
- * 
+ * Johnjimy Som
+ * edited to create alt-text attributes at preload 
  */
 {
     const mapNumber = (X,A,B,C,D) => (X-A)*(D-C)/(B-A)+C;
@@ -2495,6 +2496,7 @@
             imgel.style.width = 0;
             imgel.src = imgsArr[i];
             imgel.className = 'preload';
+			imgel.alt = "placeholder"
             contentel.appendChild(imgel);
         }
     });
