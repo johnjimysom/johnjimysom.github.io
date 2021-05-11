@@ -1,6 +1,6 @@
 # ETEC 435/535 - Accessible Webpage
 
-Johnjimy Som
+Johnjimy Som <br />
 Instructor: Brenda Harlow
 	
 [ARCHIVED CATALOG]
